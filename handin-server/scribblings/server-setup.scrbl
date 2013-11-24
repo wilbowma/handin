@@ -27,7 +27,7 @@ This directory contains the following files and sub-directories:
   The following keys can be used:
 
   @itemize[
-  @item{@indexed-racket[problem-sets] -- a list of triples of
+  @item{@indexed-racket[problem-sets] --- a list of triples of
   directories, start, and end dates. The directories are relative to the
   current directory or absolute; the last path element for each of these
   should be unique and is used to identify the submission (for example,

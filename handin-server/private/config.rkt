@@ -92,8 +92,8 @@
 
 ;; ProblemSet -> (list Path Seconds Seconds)
 ;; Parse a problem-set into something easier to work with.
+(define FOREVER (find-seconds 1 1 1 1 1 9999))
 (define (parse-ps l)
-  (define FOREVER (+ (current-seconds) (* 60 60 24 365)))
   (map (lambda (x) (list (path (first x))
                          (datetimels->seconds (second x) #:maybe 0)
                          (datetimels->seconds (third x) #:maybe FOREVER))) l))
