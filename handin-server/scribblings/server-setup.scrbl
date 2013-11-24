@@ -27,16 +27,20 @@ This directory contains the following files and sub-directories:
   The following keys can be used:
 
   @itemize[
-  @item{@indexed-racket[active-dirs] --- a list of directories that
-    are active submissions, relative to the current directory or
-    absolute; the last path element for each of these (and
-    @racketid[inactive-dirs] below) should be unique, and is used to
-    identify the submission (for example, in the client's submission
-    dialog and in the status servlet).  If a specified directory does
-    not exist, it will be created.}
+  @item{@indexed-racket[problem-sets] -- a list of triples of
+  directories, start, and end dates. The directories are relative to the
+  current directory or absolute; the last path element for each of these
+  should be unique and is used to identify the submission (for example,
+  in the client's submission dialog and in the status servlet). If the
+  specified directory does not exist, it will be created. 
+  
+  The submission directories will be active between the start and end
+  dates, inclusively. A start date of #f indicates the submission
+  directory will be active until the end date. An end date of #f means
+  the submission directory will never close once active. 
 
-  @item{@indexed-racket[inactive-dirs] --- a list of inactive
-    submission directories (see above for details).}
+  Dates are specified as (year month date hour minute). For example,
+  (2013 12 31 23 59).}
 
   @item{@indexed-racket[port-number] --- the port for the main handin
     server; the default is 7979.}
