@@ -79,24 +79,24 @@
 ;; Seconds is an exact integer, representing a time in seconds since
 ;; midnight UTC, January 1, 1970
 
+(define FOREVER (find-seconds 1 1 1 1 1 9999))
 ;; [Maybe DateTime] -> Seconds
 ;; (datetimels->seconds (2013 12 31 23 01)) -> (find-seconds 00 01 23 31 12 2013)
-;; (datetimels->seconds #f) -> maybe
-(define (datetimels->seconds ls #:maybe [maybe #f])
-  (if ls (apply (curry find-seconds 00) (reverse ls)) maybe))
+;; (datetimels->seconds #f) -> FOREVER
+(define (datetimels->seconds ls)
+  (if ls (apply (curry find-seconds 0) (reverse ls)) FOREVER))
 
 ;; A ProblemSet is a (list String [Maybe DateTime] [Maybe Datetime]), 
 ;; representing the name of a problem set and its start and end times.
-;; #f for start indicates active until the end date. #f for end
-;; indicates active forever after the start date.
+;; #f for start indicates never active. #f for end indicates active
+;; forever after the start date.
 
 ;; ProblemSet -> (list Path Seconds Seconds)
 ;; Parse a problem-set into something easier to work with.
-(define FOREVER (find-seconds 1 1 1 1 1 9999))
 (define (parse-ps l)
   (map (lambda (x) (list (path (first x))
-                         (datetimels->seconds (second x) #:maybe 0)
-                         (datetimels->seconds (third x) #:maybe FOREVER))) l))
+                         (datetimels->seconds (second x))
+                         (datetimels->seconds (third x)))) l))
 
 ;; [List-of ProblemSet] -> (list [List-of Path] [List-of Path])
 ;; parses l into active and inactive-dirs, as used in the rest of the server.

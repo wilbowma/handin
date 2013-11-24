@@ -35,9 +35,10 @@ This directory contains the following files and sub-directories:
   specified directory does not exist, it will be created. 
   
   The submission directories will be active between the start and end
-  dates, inclusively. A start date of #f indicates the submission
-  directory will be active until the end date. An end date of #f means
-  the submission directory will never close once active. 
+  dates, inclusively. A start date of #f indicates the problem set is
+  never active. An end date of #f means the submission directory will
+  never close once active. A problem set such as ("test" #f #f) will
+  never be active, while ("test" (1 1 1 1 1) #f) will always be active.
 
   Dates are specified as (year month date hour minute). For example,
   (2013 12 31 23 59).}
