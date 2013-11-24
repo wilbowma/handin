@@ -7,7 +7,7 @@
 
 
 ;; This module should be invoked when we're in the server directory
-(provide server-dir)
+(provide server-dir config-file path FOREVER)
 (define server-dir
   (let ([dir (or (getenv "PLT_HANDINSERVER_DIR") (current-directory))])
     (if (directory-exists? dir)

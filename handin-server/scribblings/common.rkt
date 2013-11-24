@@ -7,6 +7,7 @@
                     ;; racket/sandbox
                     handin-server/sandbox
                     handin-server/utils
+                    (subtract-in handin-server/interface racket)
                     racket/gui/base
                     "hook-dummy.rkt"))
 
@@ -15,5 +16,6 @@
                                   handin-server/checker
                                   handin-server/sandbox
                                   handin-server/utils
+                                  handin-server/interface
                                   racket/gui/base
                                   "hook-dummy.rkt")))

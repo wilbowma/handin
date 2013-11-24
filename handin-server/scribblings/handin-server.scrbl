@@ -19,6 +19,7 @@
 @include-section["client-customization.scrbl"]
 @include-section["server-setup.scrbl"]
 @include-section["checker-utils.scrbl"]
+@include-section["interface.scrbl"]
 @include-section["other-utils.scrbl"]
 
 @index-section[]
